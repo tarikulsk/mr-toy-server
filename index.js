@@ -11,6 +11,9 @@ const port = process.env.port || 5000;
 console.log(process.env.DB_PASS);
 
 const alltoys = require('./data/toys.json')
+const ironman = require('./data/category/ironman.json')
+const spiderman = require('./data/category/spiderman.json')
+const galaxy = require('./data/category/galaxy.json')
 
 // const toys
 app.get('/', (req, res) => {
@@ -51,11 +54,20 @@ run().catch(console.dir);
 
 
 
-app.get('/recipes', (req, res) => {
-    res.send(recipes)
-})
+
 app.get('/alltoys', (req, res) => {
     res.send(alltoys)
+})
+
+
+app.get('/ironman', (req, res) => {
+    res.send(ironman)
+})
+app.get('/spiderman', (req, res) => {
+    res.send(spiderman)
+})
+app.get('/galaxy', (req, res) => {
+    res.send(galaxy)
 })
 
 app.listen(port, () => {

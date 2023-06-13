@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "photoUrl": "https://m.media-amazon.com/images/I/615-toEy6LL._SX522_.jpg",
+        "toyName": " Iron Man",
+        "sellerName": "Marvel Toys Inc.",
+        "sellerEmail": "sales@marveltoys.com",
+        "price": 19.99,
+        "rating": 4.5,
+        "availableQuantity": 10,
+        "subcategory": "Iron Man",
+        "description": "Bring home your favorite Marvel superhero with this highly detailed action figure. Perfect for collectors and fans of all ages."
+    },
+    {
+        "id": "2",
+        "photoUrl": "https://m.media-amazon.com/images/I/615-toEy6LL._SX522_.jpg",
+        "toyName": " Iron Man",
+        "sellerName": "Marvel Toys Inc.",
+        "sellerEmail": "sales@marveltoys.com",
+        "price": 19.99,
+        "rating": 4.5,
+        "availableQuantity": 10,
+        "subcategory": "Iron Man",
+        "description": "Bring home your favorite Marvel superhero with this highly detailed action figure. Perfect for collectors and fans of all ages."
+    }
+]
