@@ -1,6 +1,6 @@
 const express = require('express');
 var cors = require('cors')
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require('dotenv').config()
 const app = express();
 const port = process.env.port || 5000;
@@ -51,6 +51,13 @@ async function run() {
             res.send(result);
 
         })
+        app.get('/addtoy/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) }
+            const result = await toyadd.findOne(query);
+            res.send(result)
+
+        })
 
 
         app.post('/addtoy', async (req, res) => {
@@ -58,6 +65,36 @@ async function run() {
             console.log('new Toy', toy);
             const result = await toyadd.insertOne(toy);
             res.send(result);
+        })
+
+        app.put('/addtoy/:id', async (req, res) => {
+            const id = req.params.id;
+            const toy = req.body;
+            console.log(toy);
+
+            const filter = { _id: new ObjectId(id) }
+            const options = { upsert: true }
+            const updateToy = {
+                $set: {
+                    photoUrl: toy.photoUrl,
+                    price: toy.price,
+                    rating: toy.rating,
+                    availableQuantity: toy.availableQuantity
+                }
+            }
+
+            const result = await toyadd.updateOne(filter, updateToy, options);
+            res.send(result);
+        })
+
+        app.delete('/addtoy/:id', async (req, res) => {
+            const id = req.params.id;
+            console.log(('Please Delete from Database', id));
+            const query = { _id: new ObjectId(id) }
+            // const result = await toyadd.deleteOne(query);
+            const result = await toyadd.deleteOne(query);
+            res.send(result);
+
         })
 
 
